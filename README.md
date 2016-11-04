@@ -476,3 +476,5 @@ public class PermissionsDispatcherActivity extends AppCompatActivity {
 
 Demo下载地址：http://download.csdn.net/detail/kong_gu_you_lan/9628379
 
+**我把使用运行时权限遇到的一些问题汇总到了一篇博客中，欢迎点击查看[《Android 6.0运行时权限问题汇总》](http://blog.csdn.net/kong_gu_you_lan/article/details/53023287)。**
+
