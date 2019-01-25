@@ -173,11 +173,11 @@ Android 6.0版本中运行时权限的出现解决了这一问题，一些高危
 
 第一次申请权限，拒绝后再次申请，申请成功
 
-![成功申请](http://img.blog.csdn.net/20160909171545619)
+![成功申请](http://upload-images.jianshu.io/upload_images/3270074-6713d9fcebc101b2?imageMogr2/auto-orient/strip)
 
 多次拒绝后，点击不再提示
 
-![拒绝申请](http://img.blog.csdn.net/20160909171629737)
+![拒绝申请](http://upload-images.jianshu.io/upload_images/3270074-f2f1c49ac8ac5139?imageMogr2/auto-orient/strip)
 
 二话不说，上代码
 
@@ -347,11 +347,11 @@ dependencies {
 
 3>在Android Studio中选择File——Setting——Plugins，搜索PermissionsDispatcher，点击install安装，如下图所示：
 
-![安装插件](http://img.blog.csdn.net/20160912105942543)
+![安装插件](http://upload-images.jianshu.io/upload_images/3270074-90de293109158985?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 4>准备工作已经完成了，下面来进行代码的生成，在Android Studio中选择Code——Generate——Generate Runtime Permissions，如下图所示：
 
-![生成代码](http://img.blog.csdn.net/20160912110551921)
+![生成代码](http://upload-images.jianshu.io/upload_images/3270074-9974a02a46222850?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 > @NeedsPermission
 > 当申请的权限被用户允许后，调用此方法。
