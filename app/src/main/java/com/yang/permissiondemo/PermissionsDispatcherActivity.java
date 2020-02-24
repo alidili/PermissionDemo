@@ -2,16 +2,16 @@ package com.yang.permissiondemo;
 
 import android.Manifest;
 import android.annotation.TargetApi;
-import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import butterknife.Bind;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import permissions.dispatcher.NeedsPermission;
@@ -24,7 +24,7 @@ import permissions.dispatcher.RuntimePermissions;
 @RuntimePermissions
 public class PermissionsDispatcherActivity extends AppCompatActivity {
 
-    @Bind(R.id.tv_permission_status)
+    @BindView(R.id.tv_permission_status)
     TextView tvPermissionStatus;
 
     @Override
@@ -42,7 +42,7 @@ public class PermissionsDispatcherActivity extends AppCompatActivity {
     @TargetApi(Build.VERSION_CODES.M)
     private void requestPermission() {
         //申请权限
-        PermissionsDispatcherActivityPermissionsDispatcher.openCameraWithCheck(this);
+        PermissionsDispatcherActivityPermissionsDispatcher.openCameraWithPermissionCheck(this);
     }
 
     @NeedsPermission(Manifest.permission.CAMERA)
@@ -55,12 +55,9 @@ public class PermissionsDispatcherActivity extends AppCompatActivity {
     void showRationale(final PermissionRequest request) {
         new AlertDialog.Builder(this)
                 .setMessage("申请相机权限")
-                .setPositiveButton("确定", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        //再次执行请求
-                        request.proceed();
-                    }
+                .setPositiveButton("确定", (dialog, which) -> {
+                    //再次执行请求
+                    request.proceed();
                 })
                 .show();
     }

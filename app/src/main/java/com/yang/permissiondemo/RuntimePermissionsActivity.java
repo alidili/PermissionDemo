@@ -2,25 +2,25 @@ package com.yang.permissiondemo;
 
 import android.Manifest;
 import android.annotation.TargetApi;
-import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import butterknife.Bind;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class RuntimePermissionsActivity extends AppCompatActivity {
 
-    @Bind(R.id.tv_permission_status)
+    @BindView(R.id.tv_permission_status)
     TextView tvPermissionStatus;
 
     private final int CAMERA_REQUEST_CODE = 1;
@@ -46,13 +46,10 @@ public class RuntimePermissionsActivity extends AppCompatActivity {
             if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.CAMERA)) {
                 new AlertDialog.Builder(this)
                         .setMessage("申请相机权限")
-                        .setPositiveButton("确定", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                //申请相机权限
-                                ActivityCompat.requestPermissions(RuntimePermissionsActivity.this,
-                                        new String[]{Manifest.permission.CAMERA}, CAMERA_REQUEST_CODE);
-                            }
+                        .setPositiveButton("确定", (dialog, which) -> {
+                            //申请相机权限
+                            ActivityCompat.requestPermissions(RuntimePermissionsActivity.this,
+                                    new String[]{Manifest.permission.CAMERA}, CAMERA_REQUEST_CODE);
                         })
                         .show();
             } else {

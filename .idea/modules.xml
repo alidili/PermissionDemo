@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Git-PermissionDemo.iml" filepath="$PROJECT_DIR$/Git-PermissionDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/PermissionDemo.iml" filepath="$PROJECT_DIR$/PermissionDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/PermissionDemo-app.iml" filepath="$PROJECT_DIR$/app/PermissionDemo-app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
